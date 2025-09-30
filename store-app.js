@@ -146,8 +146,7 @@ function StoreApp() {
         
         {/* Store Title */}
         <h1 className="store-title">
-          Exclusive. Limited.<br />
-          Invite-Only.
+          Exclusive. Limited. Invite-only.
         </h1>
         
         {/* Product Grid */}
