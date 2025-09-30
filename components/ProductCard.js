@@ -1,66 +1,43 @@
 function ProductCard({ onAddToCart, cartCount, maxItems }) {
   try {
-    const sizes = ['M', 'L', 'XL', 'XXL', 'XXXL'];
+    const sizes = ['M', 'L', 'XL', 'XXXL'];
+    // Order: Row 1: Sky Blue, Gray, Green; Row 2: Yellow, Red, Black
     const hoodies = [
       { 
-        id: 'black',
-        name: 'Jet Black Premium Hoodie',
-        images: {
-          front: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/15f4b7fc-56b6-440d-a8a9-9c37f8cee1d0.png',
-          side: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/ff8b8c97-b7dd-4144-866f-75fe0c847530.png',
-          back: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/c2fd11dd-593f-49a0-83d5-b74473a4f04e.png'
-        },
-        color: 'Jet Black'
-      },
-      { 
-        id: 'red',
-        name: 'Crimson Red Premium Hoodie',
-        images: {
-          front: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/94e05891-922a-4cb6-b136-83dc03d915df.png',
-          side: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/9e4d735d-6ee6-45f9-b5c7-65ab1cd70e81.png',
-          back: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/41dc6400-e8fe-4cfd-9806-d437fbf7bc1e.png'
-        },
-        color: 'Crimson Red'
-      },
-      { 
-        id: 'yellow',
-        name: 'Broom Yellow Premium Hoodie',
-        images: {
-          front: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/6cb4dc1e-f371-464e-a857-1eb8b15bf359.png',
-          side: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/da1c824b-d1bc-44bf-b2fe-d1a840d5759f.png',
-          back: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/d01e3496-c3ef-43f3-9274-becd576e8e34.png'
-        },
-        color: 'Broom Yellow'
-      },
-      { 
-        id: 'green',
-        name: 'Niagra Green Premium Hoodie',
-        images: {
-          front: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/78a821ed-c299-48d5-bec5-c81318c4840c.png',
-          side: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/3ba39a30-24de-41e8-9551-501f526dcec6.png',
-          back: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/b9411765-46c0-417a-83d3-e206d2b19ed7.png'
-        },
-        color: 'Niagra Green'
+        id: 'blue',
+        name: 'Sky Blue',
+        image: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/040f64df-649f-46b7-a1d0-8813528485cf.png',
+        color: 'Sky Blue'
       },
       { 
         id: 'grey',
-        name: 'Quil Grey Premium Hoodie',
-        images: {
-          front: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/02643f26-a168-44d2-9060-1e1bc0dc0aba.png',
-          side: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/4534a926-7462-4832-b332-c80e3de77cea.png',
-          back: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/5ed046d0-64ff-49d7-9ac8-a0aa59090fab.png'
-        },
-        color: 'Quil Grey'
+        name: 'Gray',
+        image: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/02643f26-a168-44d2-9060-1e1bc0dc0aba.png',
+        color: 'Gray'
       },
       { 
-        id: 'blue',
-        name: 'Curious Blue Premium Hoodie',
-        images: {
-          front: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/040f64df-649f-46b7-a1d0-8813528485cf.png',
-          side: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/145f7f62-db14-4c31-b1c0-980f15951a1f.png',
-          back: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/177048a3-7bf9-44d0-9d00-ad2f4d52e907.png'
-        },
-        color: 'Curious Blue'
+        id: 'green',
+        name: 'Green',
+        image: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/78a821ed-c299-48d5-bec5-c81318c4840c.png',
+        color: 'Green'
+      },
+      { 
+        id: 'yellow',
+        name: 'Yellow',
+        image: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/6cb4dc1e-f371-464e-a857-1eb8b15bf359.png',
+        color: 'Yellow'
+      },
+      { 
+        id: 'red',
+        name: 'Red',
+        image: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/94e05891-922a-4cb6-b136-83dc03d915df.png',
+        color: 'Red'
+      },
+      { 
+        id: 'black',
+        name: 'Black',
+        image: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/15f4b7fc-56b6-440d-a8a9-9c37f8cee1d0.png',
+        color: 'Black'
       }
     ];
 
