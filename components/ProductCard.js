@@ -73,16 +73,16 @@ function HoodieCard({ hoodie, sizes, onAddToCart, isCartFull }) {
           name: hoodie.name,
           size: selectedSize,
           color: hoodie.color,
-          price: 2899
+          price: 4899
         });
         setSelectedSize('');
       }
     };
 
     return (
-      <div className="text-center" data-name="hoodie-card" data-file="components/ProductCard.js">
-        {/* Hoodie Image */}
-        <div className="mb-6 bg-gray-200 rounded-sm overflow-hidden">
+      <div className="flex flex-col items-center text-center w-full" data-name="hoodie-card" data-file="components/ProductCard.js">
+        {/* Hoodie Image with light background */}
+        <div className="mb-5 w-full bg-gray-100 rounded overflow-hidden">
           <img 
             src={hoodie.image}
             alt={hoodie.name}
@@ -90,27 +90,27 @@ function HoodieCard({ hoodie, sizes, onAddToCart, isCartFull }) {
           />
         </div>
         
-        {/* Product Info - Centered and Stacked */}
-        <div className="flex flex-col items-center space-y-2.5">
+        {/* Product Info - Perfectly Centered and Stacked */}
+        <div className="flex flex-col items-center w-full space-y-2">
           {/* Product Name */}
-          <h3 className="text-lg font-normal text-white tracking-wider">{hoodie.name}</h3>
+          <h3 className="text-lg font-normal text-white tracking-wide">{hoodie.name}</h3>
           
           {/* Limited Stock Text */}
           <p className="text-xs text-gray-400 font-light">1 of 30 Only</p>
           
           {/* Price */}
-          <p className="text-base font-normal text-white">₹2,899</p>
+          <p className="text-base font-normal text-white">₹4,899</p>
           
-          {/* Size Options */}
-          <div className="flex justify-center gap-2 pt-1">
+          {/* Size Options - Centered */}
+          <div className="flex justify-center items-center gap-2 pt-2 w-full">
             {sizes.map(size => (
               <button
                 key={size}
                 onClick={() => setSelectedSize(size)}
-                className={`border px-3 py-1.5 text-xs font-light transition-all ${
+                className={`border px-2.5 py-1 text-xs font-light transition-all ${
                   selectedSize === size 
                     ? 'border-white bg-white text-black' 
-                    : 'border-gray-700 bg-transparent text-gray-300 hover:border-gray-500'
+                    : 'border-gray-600 bg-transparent text-gray-300 hover:border-gray-400'
                 }`}
               >
                 {size}
@@ -118,14 +118,16 @@ function HoodieCard({ hoodie, sizes, onAddToCart, isCartFull }) {
             ))}
           </div>
           
-          {/* Request Access Button */}
-          <button
-            onClick={handleRequestAccess}
-            disabled={!selectedSize || isCartFull}
-            className="mt-3 px-6 py-2 bg-gray-700 text-white font-light text-xs uppercase tracking-widest hover:bg-gray-600 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
-          >
-            Request Access
-          </button>
+          {/* Request Access Button - Full width of content block, centered */}
+          <div className="w-full pt-2">
+            <button
+              onClick={handleRequestAccess}
+              disabled={!selectedSize || isCartFull}
+              className="w-full px-6 py-2.5 bg-gray-700 text-white font-light text-xs uppercase tracking-widest hover:bg-gray-600 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              Request Access
+            </button>
+          </div>
         </div>
       </div>
     );
