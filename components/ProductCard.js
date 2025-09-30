@@ -43,24 +43,8 @@ function ProductCard({ onAddToCart, cartCount, maxItems }) {
 
     return (
       <div className="space-y-8" data-name="product-grid" data-file="components/ProductCard.js">
-        {/* Limit Notice */}
-        <div className="text-center mb-8">
-          <p className="text-gray-400 text-sm mb-2">Maximum 3 hoodies per person</p>
-          <div className="flex justify-center items-center space-x-2">
-            <div className="flex space-x-1">
-              {[...Array(maxItems)].map((_, i) => (
-                <div 
-                  key={i} 
-                  className={`w-2 h-2 rounded-full ${i < cartCount ? 'bg-[var(--luxury-gold)]' : 'bg-gray-600'}`}
-                />
-              ))}
-            </div>
-            <span className="text-[var(--luxury-gold)] text-sm font-semibold">{cartCount}/{maxItems}</span>
-          </div>
-        </div>
-
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Product Grid - Strict 2 rows x 3 columns */}
+        <div className="grid grid-cols-3 gap-8 max-w-7xl mx-auto">
           {hoodies.map(hoodie => (
             <HoodieCard
               key={hoodie.id}
