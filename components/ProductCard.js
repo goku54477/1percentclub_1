@@ -82,7 +82,7 @@ function HoodieCard({ hoodie, sizes, onAddToCart, isCartFull }) {
     return (
       <div className="text-center" data-name="hoodie-card" data-file="components/ProductCard.js">
         {/* Hoodie Image */}
-        <div className="mb-6">
+        <div className="mb-6 bg-gray-200 rounded-sm overflow-hidden">
           <img 
             src={hoodie.image}
             alt={hoodie.name}
@@ -91,26 +91,26 @@ function HoodieCard({ hoodie, sizes, onAddToCart, isCartFull }) {
         </div>
         
         {/* Product Info - Centered and Stacked */}
-        <div className="flex flex-col items-center space-y-3">
+        <div className="flex flex-col items-center space-y-2.5">
           {/* Product Name */}
-          <h3 className="text-xl font-normal text-white tracking-wide">{hoodie.name}</h3>
+          <h3 className="text-lg font-normal text-white tracking-wider">{hoodie.name}</h3>
           
           {/* Limited Stock Text */}
-          <p className="text-sm text-gray-300">1 of 30 Only</p>
+          <p className="text-xs text-gray-400 font-light">1 of 30 Only</p>
           
           {/* Price */}
-          <p className="text-lg font-normal text-white">₹2,899</p>
+          <p className="text-base font-normal text-white">₹2,899</p>
           
           {/* Size Options */}
-          <div className="flex justify-center gap-3">
+          <div className="flex justify-center gap-2 pt-1">
             {sizes.map(size => (
               <button
                 key={size}
                 onClick={() => setSelectedSize(size)}
-                className={`border px-4 py-2 text-sm font-normal transition-all ${
+                className={`border px-3 py-1.5 text-xs font-light transition-all ${
                   selectedSize === size 
                     ? 'border-white bg-white text-black' 
-                    : 'border-gray-600 bg-transparent text-white hover:border-gray-400'
+                    : 'border-gray-700 bg-transparent text-gray-300 hover:border-gray-500'
                 }`}
               >
                 {size}
@@ -122,7 +122,7 @@ function HoodieCard({ hoodie, sizes, onAddToCart, isCartFull }) {
           <button
             onClick={handleRequestAccess}
             disabled={!selectedSize || isCartFull}
-            className="mt-2 px-8 py-3 bg-white text-black font-normal text-sm uppercase tracking-wide hover:bg-gray-200 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="mt-3 px-6 py-2 bg-gray-700 text-white font-light text-xs uppercase tracking-widest hover:bg-gray-600 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
           >
             Request Access
           </button>
