@@ -1,6 +1,6 @@
 function ProductCard({ onAddToCart, cartCount, maxItems }) {
   try {
-    const sizes = ['M', 'L', 'XL', 'XXXL'];
+    const sizes = ['M', 'L', 'XL', 'XXL', 'XXXL'];
     // Order: Row 1: Sky Blue, Gray, Green; Row 2: Yellow, Red, Black
     const hoodies = [
       { 
