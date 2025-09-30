@@ -66,87 +66,67 @@ function ProductCard({ onAddToCart, cartCount, maxItems }) {
 function HoodieCard({ hoodie, sizes, onAddToCart, isCartFull }) {
   try {
     const [selectedSize, setSelectedSize] = React.useState('');
-    const [currentView, setCurrentView] = React.useState('front');
-    const views = ['front', 'side', 'back'];
 
-    const handleAddToCart = () => {
+    const handleRequestAccess = () => {
       if (selectedSize && !isCartFull) {
         onAddToCart({
           name: hoodie.name,
           size: selectedSize,
           color: hoodie.color,
-          price: 4999
+          price: 2899
         });
         setSelectedSize('');
       }
     };
 
-    const nextView = () => {
-      const currentIndex = views.indexOf(currentView);
-      const nextIndex = (currentIndex + 1) % views.length;
-      setCurrentView(views[nextIndex]);
-    };
-
-    const canAddToCart = selectedSize && !isCartFull;
-
     return (
-      <div className="premium-card" data-name="hoodie-card" data-file="components/ProductCard.js">
-        {/* Hoodie Image with Navigation */}
-        <div className="mb-4 relative">
+      <div className="text-center" data-name="hoodie-card" data-file="components/ProductCard.js">
+        {/* Hoodie Image */}
+        <div className="mb-6">
           <img 
-            src={hoodie.images[currentView]}
-            alt={`${hoodie.name} ${currentView}`}
-            className="w-full h-64 object-cover rounded-lg cursor-pointer"
-            onClick={nextView}
+            src={hoodie.image}
+            alt={hoodie.name}
+            className="w-full h-auto object-contain"
           />
-          <button
-            onClick={nextView}
-            className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all"
-          >
-            <div className="icon-arrow-right text-sm"></div>
-          </button>
-          <div className="absolute bottom-2 left-2 flex space-x-1">
-            {views.map(view => (
-              <div
-                key={view}
-                className={`w-2 h-2 rounded-full ${view === currentView ? 'bg-[var(--luxury-gold)]' : 'bg-gray-400'}`}
-              />
-            ))}
-          </div>
         </div>
         
-        {/* Product Info */}
-        <div className="text-center mb-4">
-          <h3 className="text-xl font-bold text-white mb-2 tracking-wide">{hoodie.color.toUpperCase()}</h3>
-          <p className="text-lg font-bold text-[var(--luxury-gold)] mb-1">₹4,999</p>
-          <p className="text-gray-300 text-xs">Limited Edition • Premium Cotton</p>
-        </div>
-        
-        {/* Size Selection */}
-        <div className="mb-4">
-          <h4 className="text-white text-sm font-bold mb-3 text-center tracking-wide">SELECT SIZE</h4>
-          <div className="grid grid-cols-3 gap-2">
+        {/* Product Info - Centered and Stacked */}
+        <div className="flex flex-col items-center space-y-3">
+          {/* Product Name */}
+          <h3 className="text-xl font-normal text-white tracking-wide">{hoodie.name}</h3>
+          
+          {/* Limited Stock Text */}
+          <p className="text-sm text-gray-300">1 of 30 Only</p>
+          
+          {/* Price */}
+          <p className="text-lg font-normal text-white">₹2,899</p>
+          
+          {/* Size Options */}
+          <div className="flex justify-center gap-3">
             {sizes.map(size => (
               <button
                 key={size}
                 onClick={() => setSelectedSize(size)}
-                className={`size-button text-xs py-2 px-3 ${selectedSize === size ? 'selected' : ''}`}
+                className={`border px-4 py-2 text-sm font-normal transition-all ${
+                  selectedSize === size 
+                    ? 'border-white bg-white text-black' 
+                    : 'border-gray-600 bg-transparent text-white hover:border-gray-400'
+                }`}
               >
                 {size}
               </button>
             ))}
           </div>
+          
+          {/* Request Access Button */}
+          <button
+            onClick={handleRequestAccess}
+            disabled={!selectedSize || isCartFull}
+            className="mt-2 px-8 py-3 bg-white text-black font-normal text-sm uppercase tracking-wide hover:bg-gray-200 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            Request Access
+          </button>
         </div>
-        
-        {/* Add to Cart Button */}
-        <button
-          onClick={handleAddToCart}
-          disabled={!canAddToCart}
-          className="add-to-cart-btn text-sm py-3"
-        >
-          {isCartFull ? 'CART FULL' : 
-           !selectedSize ? 'SELECT SIZE' : 'ADD TO CART'}
-        </button>
       </div>
     );
   } catch (error) {
