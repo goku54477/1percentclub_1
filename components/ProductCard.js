@@ -44,7 +44,7 @@ function ProductCard({ onAddToCart, cartCount, maxItems }) {
     return (
       <div className="space-y-8" data-name="product-grid" data-file="components/ProductCard.js">
         {/* Product Grid - Strict 2 rows x 3 columns */}
-        <div className="grid grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-3 gap-12 max-w-6xl mx-auto px-8">
           {hoodies.map(hoodie => (
             <HoodieCard
               key={hoodie.id}
