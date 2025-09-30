@@ -150,7 +150,7 @@ function StoreApp() {
         </h1>
         
         {/* Product Grid */}
-        <div className="max-w-4xl mx-auto">
+        <div className="w-full mx-auto">
           <ProductCard 
             onAddToCart={addToCart}
             cartCount={cart.length}
