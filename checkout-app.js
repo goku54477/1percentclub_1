@@ -164,10 +164,11 @@ function CheckoutApp() {
           {/* Progress Bar */}
           <div className="relative mb-8">
             <div className="progress-line"></div>
+            <div className="progress-line-filled" style={{width: '33.33%'}}></div>
             <div className="progress-bar max-w-2xl mx-auto">
               <div className="progress-step">
-                <div className="progress-circle inactive">1</div>
-                <span className="text-xs text-gray-400 uppercase">Cart</span>
+                <div className="progress-circle completed">✓</div>
+                <span className="text-xs text-green-400 uppercase font-semibold">Cart</span>
               </div>
               <div className="progress-step">
                 <div className="progress-circle active">2</div>
