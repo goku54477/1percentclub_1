@@ -179,6 +179,11 @@
             color: var(--secondary-color);
         }
         
+        .progress-circle.completed {
+            background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+            color: #ffffff;
+        }
+        
         .progress-circle.inactive {
             background: rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.4);
@@ -193,6 +198,16 @@
             height: 2px;
             background: rgba(201, 169, 97, 0.2);
             z-index: 1;
+        }
+        
+        .progress-line-filled {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #22C55E 0%, #16A34A 100%);
+            z-index: 1;
+            transition: width 0.3s ease;
         }
     }
     </style>
