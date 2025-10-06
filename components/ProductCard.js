@@ -123,7 +123,7 @@ function HoodieCard({ hoodie, sizes, onAddToCart, isCartFull }) {
             <button
               onClick={handleRequestAccess}
               disabled={!selectedSize || isCartFull}
-              className="w-full px-6 py-2.5 bg-gray-700 text-white font-light text-xs uppercase tracking-widest hover:bg-gray-600 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+              className="w-full px-6 py-3 bg-gradient-to-r from-[var(--luxury-gold)] to-[#d4af37] text-black font-semibold text-sm uppercase tracking-wider hover:from-[#d4af37] hover:to-[var(--luxury-gold)] transition-all shadow-lg hover:shadow-xl disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:from-[var(--luxury-gold)] disabled:hover:to-[#d4af37]"
             >
               Request Access
             </button>
