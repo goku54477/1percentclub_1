@@ -6,37 +6,37 @@ function ProductCard({ onAddToCart, cartCount, maxItems }) {
       { 
         id: 'blue',
         name: 'Sky Blue',
-        image: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/040f64df-649f-46b7-a1d0-8813528485cf.png',
+        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/sky-blue.png.png',
         color: 'Sky Blue'
       },
       { 
         id: 'grey',
         name: 'Gray',
-        image: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/02643f26-a168-44d2-9060-1e1bc0dc0aba.png',
+        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/gray.png.png',
         color: 'Gray'
       },
       { 
         id: 'green',
         name: 'Green',
-        image: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/78a821ed-c299-48d5-bec5-c81318c4840c.png',
+        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/green.png.png',
         color: 'Green'
       },
       { 
         id: 'yellow',
         name: 'Yellow',
-        image: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/6cb4dc1e-f371-464e-a857-1eb8b15bf359.png',
+        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/yellow.png.png',
         color: 'Yellow'
       },
       { 
         id: 'red',
         name: 'Red',
-        image: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/94e05891-922a-4cb6-b136-83dc03d915df.png',
+        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/red.png.png',
         color: 'Red'
       },
       { 
         id: 'black',
         name: 'Black',
-        image: 'https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/15f4b7fc-56b6-440d-a8a9-9c37f8cee1d0.png',
+        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/black.png.png',
         color: 'Black'
       }
     ];
