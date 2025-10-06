@@ -81,12 +81,12 @@ function HoodieCard({ hoodie, sizes, onAddToCart, isCartFull }) {
 
     return (
       <div className="flex flex-col items-center text-center w-full" data-name="hoodie-card" data-file="components/ProductCard.js">
-        {/* Hoodie Image with light background - Fixed aspect ratio for consistency */}
-        <div className="mb-5 w-full bg-gray-100 rounded overflow-hidden aspect-square flex items-center justify-center">
+        {/* Hoodie Image with light background - Full model display without cropping */}
+        <div className="mb-5 w-full bg-gray-100 rounded overflow-hidden" style={{aspectRatio: '3/4'}}>
           <img 
             src={hoodie.image}
             alt={hoodie.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
         </div>
         
