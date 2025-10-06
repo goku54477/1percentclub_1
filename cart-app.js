@@ -138,7 +138,7 @@ function CartApp() {
                     <div>
                       <div className="flex justify-between items-start mb-2">
                         <div>
-                          <h3 className="text-xl font-semibold text-white mb-1">Premium Hoodie</h3>
+                          <h3 className="text-xl font-semibold text-white mb-1">{item.name}</h3>
                           <p className="text-[var(--luxury-gold)] text-sm">
                             {item.color} • Size {item.size}
                           </p>
