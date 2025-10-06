@@ -1,42 +1,42 @@
 function ProductCard({ onAddToCart, cartCount, maxItems }) {
   try {
     const sizes = ['M', 'L', 'XL', 'XXL', 'XXXL'];
-    // Order: Row 1: Sky Blue, Gray, Green; Row 2: Yellow, Red, Black
+    // Order: Row 1: Turquoise Blue, Grey, Green; Row 2: Yellow, Red, Black
     const hoodies = [
       { 
         id: 'blue',
-        name: 'Sky Blue',
-        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/sky-blue.png.png',
-        color: 'Sky Blue'
+        name: '[ OB1 ]',
+        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/ea35a98d515bc61ba55361ce23d48cfa3231cc64/blue1.jpg',
+        color: 'Turquoise Blue'
       },
       { 
         id: 'grey',
-        name: 'Gray',
-        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/gray.png.png',
-        color: 'Gray'
+        name: '[ GREY MATTER ]',
+        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/ea35a98d515bc61ba55361ce23d48cfa3231cc64/grey1.jpg',
+        color: 'Grey'
       },
       { 
         id: 'green',
-        name: 'Green',
-        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/green.png.png',
+        name: '[ GREEN GOBLIN ]',
+        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/ea35a98d515bc61ba55361ce23d48cfa3231cc64/green1.jpg',
         color: 'Green'
       },
       { 
         id: 'yellow',
-        name: 'Yellow',
-        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/yellow.png.png',
+        name: '[ LEMONCHELLO ]',
+        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/ea35a98d515bc61ba55361ce23d48cfa3231cc64/yellow1.jpg',
         color: 'Yellow'
       },
       { 
         id: 'red',
-        name: 'Red',
-        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/red.png.png',
+        name: '[ RED DRAGON ]',
+        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/ea35a98d515bc61ba55361ce23d48cfa3231cc64/red1.jpg',
         color: 'Red'
       },
       { 
         id: 'black',
-        name: 'Black',
-        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/black.png.png',
+        name: '[ VENOM ]',
+        image: 'https://raw.githubusercontent.com/goku54477/1percentclub_1/ea35a98d515bc61ba55361ce23d48cfa3231cc64/black1.jpg',
         color: 'Black'
       }
     ];
