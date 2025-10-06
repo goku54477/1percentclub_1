@@ -74,7 +74,7 @@ function CartApp() {
 
     const handleCheckout = () => {
       if (cart.length > 0) {
-        window.location.href = `confirmation.html?items=${getTotalItems()}&total=${getTotalPrice()}`;
+        window.location.href = 'checkout.html';
       }
     };
 
