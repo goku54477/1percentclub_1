@@ -252,14 +252,14 @@ function CartApp() {
 // Helper function to get product image URL based on color
 function getProductImage(color) {
   const imageMap = {
-    'Sky Blue': 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/sky-blue.png.png',
-    'Gray': 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/gray.png.png',
-    'Green': 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/green.png.png',
-    'Yellow': 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/yellow.png.png',
-    'Red': 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/red.png.png',
-    'Black': 'https://raw.githubusercontent.com/goku54477/1percentclub_1/a3d8a58cdd60d959628f805d2fee3a0a33c4a0f1/trickle/assets/black.png.png'
+    'Turquoise Blue': 'https://raw.githubusercontent.com/goku54477/1percentclub_1/ea35a98d515bc61ba55361ce23d48cfa3231cc64/blue1.jpg',
+    'Grey': 'https://raw.githubusercontent.com/goku54477/1percentclub_1/ea35a98d515bc61ba55361ce23d48cfa3231cc64/grey1.jpg',
+    'Green': 'https://raw.githubusercontent.com/goku54477/1percentclub_1/ea35a98d515bc61ba55361ce23d48cfa3231cc64/green1.jpg',
+    'Yellow': 'https://raw.githubusercontent.com/goku54477/1percentclub_1/ea35a98d515bc61ba55361ce23d48cfa3231cc64/yellow1.jpg',
+    'Red': 'https://raw.githubusercontent.com/goku54477/1percentclub_1/ea35a98d515bc61ba55361ce23d48cfa3231cc64/red1.jpg',
+    'Black': 'https://raw.githubusercontent.com/goku54477/1percentclub_1/ea35a98d515bc61ba55361ce23d48cfa3231cc64/black1.jpg'
   };
-  return imageMap[color] || imageMap['Gray'];
+  return imageMap[color] || imageMap['Grey'];
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
