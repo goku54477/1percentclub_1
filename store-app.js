@@ -36,13 +36,23 @@ class ErrorBoundary extends React.Component {
 
 function StoreApp() {
   try {
-    const [cart, setCart] = React.useState([]);
+    const [cart, setCart] = React.useState(() => {
+      // Load cart from localStorage on mount
+      const savedCart = localStorage.getItem('cart');
+      return savedCart ? JSON.parse(savedCart) : [];
+    });
     const [showCart, setShowCart] = React.useState(false);
     const maxItems = 3;
 
+    // Save cart to localStorage whenever it changes
+    React.useEffect(() => {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }, [cart]);
+
     const addToCart = (product) => {
       if (cart.length < maxItems) {
-        setCart([...cart, { ...product, id: Date.now() }]);
+        const newCart = [...cart, { ...product, id: Date.now(), quantity: 1 }];
+        setCart(newCart);
       }
     };
 
@@ -51,12 +61,13 @@ function StoreApp() {
     };
 
     const getTotalPrice = () => {
-      return cart.reduce((total, item) => total + item.price, 0);
+      return cart.reduce((total, item) => total + (item.price * (item.quantity || 1)), 0);
     };
 
     const handleCheckout = () => {
       if (cart.length > 0) {
-        window.location.href = `confirmation.html?items=${cart.length}&total=${getTotalPrice()}`;
+        // Redirect to cart page instead of directly to confirmation
+        window.location.href = 'cart.html';
       }
     };
 
