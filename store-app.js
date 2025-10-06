@@ -128,7 +128,7 @@ function StoreApp() {
                   </div>
                   <button 
                     onClick={handleCheckout}
-                    className="w-full bg-gradient-to-r from-[var(--luxury-gold)] to-yellow-600 text-black font-bold py-3 px-6 rounded-xl uppercase tracking-wide hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                    className="w-full bg-gradient-to-r from-[var(--luxury-gold)] to-[#d4af37] text-black font-bold py-3 px-6 rounded-xl uppercase tracking-wide hover:from-[#d4af37] hover:to-[var(--luxury-gold)] hover:shadow-lg transform hover:scale-105 transition-all duration-200"
                   >
                     Proceed to Checkout
                   </button>
