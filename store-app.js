@@ -106,7 +106,7 @@ function StoreApp() {
                     <div key={item.id} className="bg-white bg-opacity-5 border border-[var(--luxury-gold)] border-opacity-20 rounded-xl p-4 backdrop-blur-sm">
                       <div className="flex justify-between items-start mb-2">
                         <div>
-                          <h4 className="text-white font-semibold">Premium Hoodie</h4>
+                          <h4 className="text-white font-semibold">{item.name}</h4>
                           <p className="text-[var(--luxury-gold)] text-sm">{item.color} • Size {item.size}</p>
                         </div>
                         <button 
