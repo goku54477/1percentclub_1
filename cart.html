@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Shopping Cart - Your Exclusive Items</title>
+    <meta name="description" content="Review your cart and proceed to checkout for your exclusive limited edition items.">
+    <meta name="keywords" content="cart, shopping cart, checkout, exclusive, limited edition">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Shopping Cart - Your Exclusive Items">
+    <meta property="og:description" content="Review your cart and proceed to checkout.">
+    
+    <!-- Twitter -->
+    <meta name="twitter:title" content="Shopping Cart - Your Exclusive Items">
+    <meta name="twitter:description" content="Review your cart and proceed to checkout.">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #0b0b0a;
+            --luxury-gold: #c9a961;
+            --text-light: #ffffff;
+            --text-dark: #000000;
+            --background-dark: #0b0b0a;
+            --premium-red: #8b0000;
+        }
+    }
+
+    @layer base {
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+    }
+
+    @layer components {
+        .cart-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 300;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+            line-height: 1.3;
+        }
+        
+        .cart-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .quantity-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            color: #ffffff;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .quantity-btn:hover:not(:disabled) {
+            background: rgba(201, 169, 97, 0.3);
+            border-color: var(--luxury-gold);
+            transform: scale(1.05);
+        }
+        
+        .quantity-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        
+        .checkout-button {
+            background: linear-gradient(135deg, var(--luxury-gold) 0%, #d4af37 100%);
+            color: var(--secondary-color);
+            border: none;
+            padding: 1.25rem 3rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
+            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.4);
+            width: 100%;
+        }
+        
+        .checkout-button:hover:not(:disabled) {
+            background: linear-gradient(135deg, #d4af37 0%, var(--luxury-gold) 100%);
+            box-shadow: 0 12px 30px rgba(201, 169, 97, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .checkout-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .continue-shopping-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(201, 169, 97, 0.4);
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
+            width: 100%;
+        }
+        
+        .continue-shopping-btn:hover {
+            background: rgba(201, 169, 97, 0.2);
+            border-color: var(--luxury-gold);
+            transform: translateY(-2px);
+        }
+        
+        .remove-btn {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .remove-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+        }
+    }
+    </style>
+
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel" src="cart-app.js"></script>
+</body>
+</html>
