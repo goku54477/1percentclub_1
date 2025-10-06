@@ -37,7 +37,7 @@ class ErrorBoundary extends React.Component {
 function ConfirmationApp() {
   try {
     return (
-      <div className="min-h-screen bg-[#0b0b0a] flex flex-col items-center justify-center text-center px-4" data-name="confirmation-app" data-file="confirmation-app.js">
+      <div className="min-h-screen bg-[#0b0b0a] flex flex-col items-center justify-center text-center px-4 py-8" data-name="confirmation-app" data-file="confirmation-app.js">
         {/* Logo */}
         <div className="mb-6 sm:mb-8">
           <img 
@@ -45,6 +45,26 @@ function ConfirmationApp() {
             alt="Logo" 
             className="h-16 sm:h-20 w-auto mx-auto"
           />
+        </div>
+        
+        {/* Progress Bar */}
+        <div className="relative mb-8 w-full">
+          <div className="progress-line"></div>
+          <div className="progress-line-filled" style={{width: '100%'}}></div>
+          <div className="progress-bar max-w-2xl mx-auto">
+            <div className="progress-step">
+              <div className="progress-circle completed">✓</div>
+              <span className="text-xs text-green-400 uppercase font-semibold">Cart</span>
+            </div>
+            <div className="progress-step">
+              <div className="progress-circle completed">✓</div>
+              <span className="text-xs text-green-400 uppercase font-semibold">Information</span>
+            </div>
+            <div className="progress-step">
+              <div className="progress-circle active">3</div>
+              <span className="text-xs text-white uppercase font-semibold">Confirmation</span>
+            </div>
+          </div>
         </div>
         
         {/* Success Icon */}
