@@ -1,23 +1,13 @@
 {
-  "version": 2,
-  "builds": [
+  "buildCommand": "cd frontend && yarn install && yarn build",
+  "outputDirectory": "frontend/build",
+  "devCommand": "cd frontend && yarn start",
+  "installCommand": "cd frontend && yarn install",
+  "framework": "create-react-app",
+  "rewrites": [
     {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/$1"
-    }
-  ],
-  "outputDirectory": "frontend/build"
+  ]
 }
