@@ -16,37 +16,37 @@ const Store = () => {
     { 
       id: 'blue',
       name: '[ OB1 ]',
-      image: '/assets/blue-model.png',
+      image: '/assets/blue1.jpg',
       color: 'Turquoise Blue'
     },
     { 
       id: 'grey',
       name: '[ GREY MATTER ]',
-      image: '/assets/white-model.png',
+      image: '/assets/grey1.jpg',
       color: 'Grey'
     },
     { 
       id: 'green',
       name: '[ GREEN GOBLIN ]',
-      image: '/assets/green-model.png',
+      image: '/assets/green1.jpg',
       color: 'Green'
     },
     { 
       id: 'yellow',
       name: '[ LEMONCHELLO ]',
-      image: '/assets/yellow-model.png',
+      image: '/assets/yellow1.jpg',
       color: 'Yellow'
     },
     { 
       id: 'red',
       name: '[ RED DRAGON ]',
-      image: '/assets/red-model.png',
+      image: '/assets/red1.jpg',
       color: 'Red'
     },
     { 
       id: 'black',
       name: '[ VENOM ]',
-      image: '/assets/black-model.png',
+      image: '/assets/black1.jpg',
       color: 'Black'
     }
   ];
