@@ -212,12 +212,18 @@ const HoodieCard = ({ hoodie, onAddToCart, isCartFull }) => {
 
   return (
     <div className="flex flex-col items-center text-center w-full" data-testid={`product-${hoodie.id}`}>
-      {/* Hoodie Image with white background - Full model display */}
-      <div className="mb-5 w-full bg-white rounded overflow-hidden" style={{aspectRatio: '3/4'}}>
+      {/* Hoodie Image - Fixed model display without head cutoff and white space removed */}
+      <div className="mb-5 w-full bg-black rounded overflow-hidden relative" style={{aspectRatio: '3/4', height: '100%'}}>
         <img 
           src={hoodie.image}
           alt={hoodie.name}
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full"
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center top',
+            transform: 'scale(1.05)',
+            transformOrigin: 'center top'
+          }}
         />
       </div>
       
