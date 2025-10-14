@@ -112,89 +112,29 @@ user_problem_statement: |
      - 1.8s duration before navigating to checkout page
 
 frontend:
-  - task: "Create ClosedLanding page component with password protection"
+  - task: "Replace landing page hoodie showcase with composite image"
     implemented: true
     working: true
-    file: "src/pages/ClosedLanding.jsx"
+    file: "src/pages/ClosedLanding.jsx, public/assets/landing-hoodies.png"
     stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
       - working: true
         agent: "main"
-        comment: "Created full-screen landing page with black background, red 1% logo, WE'RE CLOSED heading, subtitle, password input (validates 1percent case-insensitive), ENTER button with error handling (red error text + shake animation), and 6-hoodie showcase in responsive grid. Fade-in animation on load (0.5s), smooth transition to marketplace on successful auth (0.3s fade). Mobile responsive with 2-column grid."
+        comment: "Downloaded composite hoodie image from GitHub (unnamed (2).png) and saved as landing-hoodies.png in public/assets. Replaced the 6-image grid with single full-width image. Image displays all 6 hoodies (blue, grey, green, yellow, red, black) in horizontal layout with centered positioning. Removed unused hoodies array from component state. Image is responsive and maintains aspect ratio."
   
-  - task: "Create WaitlistModal component with form validation"
+  - task: "Add checkout transition animation in Cart component"
     implemented: true
     working: true
-    file: "src/components/WaitlistModal.jsx"
+    file: "src/pages/Cart.jsx, src/components/CheckoutTransition.jsx"
     stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
       - working: true
         agent: "main"
-        comment: "Built centered modal with dark backdrop (80% opacity), red border. Form collects First Name, Last Name, Email, Phone Number (all required). Client-side validation with regex for email/phone. Red error messages below invalid fields. Success message (green checkmark + text) displays 2s before auto-close. ESC key, backdrop click, and X button all close modal. Focus trap implemented. Stores data in localStorage. Fully responsive."
-  
-  - task: "Implement ProtectedRoute component for marketplace access"
-    implemented: true
-    working: true
-    file: "src/components/ProtectedRoute.jsx"
-    stuck_count: 0
-    priority: "high"
-    needs_retesting: false
-    status_history:
-      - working: true
-        agent: "main"
-        comment: "Created route guard component that checks localStorage 'authenticated' flag. Redirects unauthenticated users to landing page (/). Applied to all marketplace routes (/store, /cart, /checkout, /confirmation). Password success sets flag and navigates with fade transition. Tested direct URL access - properly redirects to landing."
-  
-  - task: "Update App.js routing to integrate ClosedLanding as entry point"
-    implemented: true
-    working: true
-    file: "src/App.js"
-    stuck_count: 0
-    priority: "high"
-    needs_retesting: false
-    status_history:
-      - working: true
-        agent: "main"
-        comment: "Modified routing structure: / route now shows ClosedLanding instead of redirecting to /store. Wrapped all marketplace routes (/store, /cart, /checkout, /confirmation) with ProtectedRoute component. Maintained existing PageTransition animations. Authentication flow working correctly - landing gates access, password unlocks marketplace with smooth transitions."
-  
-  - task: "Integrate new product images from GitHub commit"
-    implemented: true
-    working: true
-    file: "src/pages/Store.jsx"
-    stuck_count: 0
-    priority: "high"
-    needs_retesting: false
-    status_history:
-      - working: true
-        agent: "main"
-        comment: "Downloaded and integrated 6 new product images (black1.jpg, blue1.jpg, green1.jpg, grey1.jpg, red1.jpg, yellow1.jpg) from GitHub commit ea35a98. Updated image paths in hoodies array. Images displaying correctly in marketplace grid."
-  
-  - task: "Fix model image sizing and cropping in marketplace"
-    implemented: true
-    working: true
-    file: "src/pages/Store.jsx"
-    stuck_count: 0
-    priority: "high"
-    needs_retesting: false
-    status_history:
-      - working: true
-        agent: "main"
-        comment: "Fixed model images to prevent head cutoff and remove white background. Changed container background to black, applied object-fit: cover with object-position: center top, added transform: scale(1.05) for full model visibility. Verified on desktop and mobile - no distortion, proper centering, dark theme maintained."
-  
-  - task: "Add cart-to-confirmation transition animation"
-    implemented: true
-    working: true
-    file: "src/App.js, src/components/PageTransition.jsx"
-    stuck_count: 0
-    priority: "high"
-    needs_retesting: false
-    status_history:
-      - working: true
-        agent: "main"
-        comment: "Implemented smooth page transition using framer-motion. Created PageTransition component with AnimatePresence. Confirmation page slides in from right (x: 100% to 0), fades in (opacity 0 to 1), with scale effect (0.95 to 1). Duration 0.8s with custom easing. Tested and working on desktop and mobile. No jank, consistent with dark theme."
+        comment: "Created CheckoutTransition component with full-screen black overlay (z-index 9999). Features: (1) Pulsing red 1% logo with scale animation (1 to 1.05 to 1, infinite loop), (2) 'PROCEEDING TO CHECKOUT' heading text, (3) Three yellow dots with staggered pulse animations (delays: 0, 0.2s, 0.4s), (4) Yellow gradient progress bar animating from 0% to 100% width in 1.5s. Total duration 1.8s before auto-navigating to /checkout. Integrated into Cart component with AnimatePresence for smooth mount/unmount. Tested - works on Proceed to Checkout button click."
 
 metadata:
   created_by: "main_agent"
