@@ -1,0 +1,11 @@
+backend/
+tests/
+temp_repo/
+test_reports/
+*.md
+*.mp4
+.git
+.emergent
+node_modules
+__pycache__
+*.pyc
