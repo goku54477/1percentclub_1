@@ -105,21 +105,21 @@ const Cart = () => {
       </AnimatePresence>
       
       <div className="min-h-screen bg-black px-4 py-8" data-testid="cart-page">
-      {/* Logo */}
-      <div className="text-center mb-8">
-        <img
-          src="https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/1240476a-bf23-4bf4-9259-64052a0d8ef0.jpeg"
-          alt="Logo"
-          className="h-16 w-auto mx-auto mb-4 drop-shadow-lg"
-        />
-      </div>
+        {/* Logo */}
+        <div className="text-center mb-8">
+          <img
+            src="https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/1240476a-bf23-4bf4-9259-64052a0d8ef0.jpeg"
+            alt="Logo"
+            className="h-16 w-auto mx-auto mb-4 drop-shadow-lg"
+          />
+        </div>
 
-      {/* Page Title */}
-      <h1 className="text-4xl md:text-5xl font-light text-white mb-12 text-center uppercase tracking-wider">
-        Your Shopping Cart
-      </h1>
+        {/* Page Title */}
+        <h1 className="text-4xl md:text-5xl font-light text-white mb-12 text-center uppercase tracking-wider">
+          Your Shopping Cart
+        </h1>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Cart Items Section */}
         <div className="lg:col-span-2 space-y-4">
           {cart.map(item => (
