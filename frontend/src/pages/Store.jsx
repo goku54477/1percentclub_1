@@ -1,186 +1,263 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, X } from 'lucide-react';
 import { toast } from 'sonner';
 
 const Store = () => {
   const navigate = useNavigate();
-  const [cartCount, setCartCount] = useState(() => {
+  const maxItems = 3;
+  const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem('cart');
-    const cart = savedCart ? JSON.parse(savedCart) : [];
-    return cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    return savedCart ? JSON.parse(savedCart) : [];
   });
+  const [showCart, setShowCart] = useState(false);
 
-  const products = [
-    {
-      id: 'green-goblin',
+  const hoodies = [
+    { 
+      id: 'blue',
+      name: '[ OB1 ]',
+      image: '/assets/blue-model.png',
+      color: 'Turquoise Blue'
+    },
+    { 
+      id: 'grey',
+      name: '[ GREY MATTER ]',
+      image: '/assets/white-model.png',
+      color: 'Grey'
+    },
+    { 
+      id: 'green',
       name: '[ GREEN GOBLIN ]',
-      price: 4899,
-      colors: ['Green', 'Black', 'Red', 'Yellow', 'Turquoise Blue', 'Grey'],
-      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-      image: '/assets/green-model.png'
+      image: '/assets/green-model.png',
+      color: 'Green'
+    },
+    { 
+      id: 'yellow',
+      name: '[ LEMONCHELLO ]',
+      image: '/assets/yellow-model.png',
+      color: 'Yellow'
+    },
+    { 
+      id: 'red',
+      name: '[ RED DRAGON ]',
+      image: '/assets/red-model.png',
+      color: 'Red'
+    },
+    { 
+      id: 'black',
+      name: '[ VENOM ]',
+      image: '/assets/black-model.png',
+      color: 'Black'
     }
   ];
 
-  const addToCart = (product, color, size) => {
-    const savedCart = localStorage.getItem('cart');
-    const cart = savedCart ? JSON.parse(savedCart) : [];
-    
-    const existingItem = cart.find(
-      item => item.id === `${product.id}-${color}-${size}`
-    );
-
-    if (existingItem) {
-      existingItem.quantity = (existingItem.quantity || 1) + 1;
-    } else {
-      cart.push({
-        id: `${product.id}-${color}-${size}`,
-        name: product.name,
-        price: product.price,
-        color: color,
-        size: size,
-        quantity: 1
+  const addToCart = (product) => {
+    if (cart.length < maxItems) {
+      const newCart = [...cart, { ...product, id: `${product.name}-${product.size}-${Date.now()}`, quantity: 1 }];
+      setCart(newCart);
+      localStorage.setItem('cart', JSON.stringify(newCart));
+      toast.success('Added to cart!', {
+        description: `${product.name} (${product.color}, ${product.size})`
       });
     }
+  };
 
-    localStorage.setItem('cart', JSON.stringify(cart));
-    const newCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
-    setCartCount(newCount);
-    
-    toast.success('Added to cart!', {
-      description: `${product.name} (${color}, ${size})`
-    });
+  const removeFromCart = (id) => {
+    const newCart = cart.filter(item => item.id !== id);
+    setCart(newCart);
+    localStorage.setItem('cart', JSON.stringify(newCart));
+  };
+
+  const getTotalPrice = () => {
+    return cart.reduce((total, item) => total + (item.price * (item.quantity || 1)), 0);
+  };
+
+  const handleCheckout = () => {
+    if (cart.length > 0) {
+      navigate('/cart');
+    }
   };
 
   return (
     <div className="min-h-screen bg-black px-4 py-8" data-testid="store-page">
-      {/* Header with Cart */}
-      <div className="max-w-7xl mx-auto mb-8">
-        <div className="flex justify-between items-center">
-          <img
-            src="https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/1240476a-bf23-4bf4-9259-64052a0d8ef0.jpeg"
-            alt="Logo"
-            className="h-16 w-auto"
-          />
-          <Button
-            onClick={() => navigate('/cart')}
-            className="relative bg-yellow-600 hover:bg-yellow-700 text-black"
-            data-testid="cart-icon-btn"
-          >
-            <ShoppingCart className="w-5 h-5 mr-2" />
-            Cart
-            {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center" data-testid="cart-count">
-                {cartCount}
-              </span>
-            )}
-          </Button>
+      {/* Cart Counter */}
+      {cart.length > 0 && (
+        <button 
+          onClick={() => setShowCart(!showCart)}
+          className="fixed top-6 right-6 z-50 bg-gradient-to-r from-yellow-600 to-yellow-500 text-black px-5 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition-all"
+          data-testid="cart-icon-btn"
+        >
+          <ShoppingCart className="inline-block mr-2 w-5 h-5" />
+          {cart.length}/{maxItems}
+        </button>
+      )}
+      
+      {/* Premium Cart Sidebar */}
+      <div className={`fixed top-0 right-0 h-full w-96 bg-black bg-opacity-95 backdrop-blur-xl border-l border-yellow-600 border-opacity-30 transform transition-transform duration-300 z-50 ${showCart ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="p-6">
+          <div className="flex justify-between items-center mb-6">
+            <h3 className="text-xl font-bold text-white uppercase tracking-wide">Your Cart</h3>
+            <button 
+              onClick={() => setShowCart(false)}
+              className="text-yellow-600 hover:text-white transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+          
+          {cart.length === 0 ? (
+            <p className="text-gray-400 text-center py-8">Your cart is empty</p>
+          ) : (
+            <>
+              <div className="space-y-4 mb-6 max-h-96 overflow-y-auto">
+                {cart.map(item => (
+                  <div key={item.id} className="bg-white bg-opacity-5 border border-yellow-600 border-opacity-20 rounded-xl p-4 backdrop-blur-sm">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <h4 className="text-white font-semibold">{item.name}</h4>
+                        <p className="text-yellow-500 text-sm">{item.color} • Size {item.size}</p>
+                      </div>
+                      <button 
+                        onClick={() => removeFromCart(item.id)}
+                        className="text-red-400 hover:text-red-300 transition-colors p-1"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
+                    <p className="text-white font-bold text-lg">₹{item.price.toLocaleString()}</p>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="border-t border-yellow-600 border-opacity-20 pt-4">
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-white font-semibold">Total ({cart.length} items)</span>
+                  <span className="text-yellow-500 font-bold text-xl">₹{getTotalPrice().toLocaleString()}</span>
+                </div>
+                <button 
+                  onClick={handleCheckout}
+                  className="w-full bg-gradient-to-r from-yellow-600 to-yellow-500 text-black font-bold py-3 px-6 rounded-xl uppercase tracking-wide hover:from-yellow-500 hover:to-yellow-600 hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                >
+                  Proceed to Checkout
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </div>
-
+      
+      {/* Overlay */}
+      {showCart && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          onClick={() => setShowCart(false)}
+        ></div>
+      )}
+      
+      {/* Logo */}
+      <div className="text-center mb-8">
+        <img 
+          src="https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/1240476a-bf23-4bf4-9259-64052a0d8ef0.jpeg" 
+          alt="Logo" 
+          className="h-16 w-auto mx-auto mb-4 drop-shadow-lg"
+        />
+      </div>
+      
       {/* Store Title */}
-      <h1 className="text-5xl font-light text-white mb-12 text-center uppercase tracking-wider">
-        Premium Collection
+      <h1 className="text-4xl md:text-5xl font-light text-white mb-12 text-center uppercase tracking-wider">
+        Exclusive. Limited. Invite-only.
       </h1>
-
-      {/* Products Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {products.map(product => (
-          <ProductCard
-            key={product.id}
-            product={product}
+      
+      {/* Product Grid - All 6 Hoodies */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
+        {hoodies.map(hoodie => (
+          <HoodieCard
+            key={hoodie.id}
+            hoodie={hoodie}
             onAddToCart={addToCart}
+            isCartFull={cart.length >= maxItems}
           />
         ))}
       </div>
+      
+      {/* Floating Checkout Button */}
+      {cart.length > 0 && (
+        <button 
+          onClick={handleCheckout}
+          className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-600 to-yellow-500 text-black font-bold py-4 px-8 rounded-xl uppercase tracking-wide shadow-2xl hover:from-yellow-500 hover:to-yellow-600 hover:shadow-3xl hover:-translate-y-1 transition-all duration-200 z-40"
+          data-testid="checkout-btn"
+        >
+          CHECKOUT ₹{getTotalPrice().toLocaleString()}
+        </button>
+      )}
     </div>
   );
 };
 
-const ProductCard = ({ product, onAddToCart }) => {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2]); // Default to 'L'
+const HoodieCard = ({ hoodie, onAddToCart, isCartFull }) => {
+  const sizes = ['M', 'L', 'XL', 'XXL', 'XXXL'];
+  const [selectedSize, setSelectedSize] = useState('');
 
-  const getProductImage = (color) => {
-    const imageMap = {
-      'Turquoise Blue': '/assets/blue-model.png',
-      'Grey': '/assets/white-model.png',
-      'Green': '/assets/green-model.png',
-      'Yellow': '/assets/yellow-model.png',
-      'Red': '/assets/red-model.png',
-      'Black': '/assets/black-model.png'
-    };
-    return imageMap[color] || product.image;
+  const handleRequestAccess = () => {
+    if (selectedSize && !isCartFull) {
+      onAddToCart({
+        name: hoodie.name,
+        size: selectedSize,
+        color: hoodie.color,
+        price: 4899
+      });
+      setSelectedSize('');
+    }
   };
 
   return (
-    <Card className="p-6 bg-zinc-900 border-zinc-800 hover:border-yellow-600 transition-colors" data-testid={`product-${product.id}`}>
-      {/* Product Image */}
-      <div className="w-full h-80 bg-zinc-800 rounded-lg overflow-hidden mb-4">
-        <img
-          src={getProductImage(selectedColor)}
-          alt={product.name}
-          className="w-full h-full object-cover object-center"
+    <div className="flex flex-col items-center text-center w-full" data-testid={`product-${hoodie.id}`}>
+      {/* Hoodie Image with white background - Full model display */}
+      <div className="mb-5 w-full bg-white rounded overflow-hidden" style={{aspectRatio: '3/4'}}>
+        <img 
+          src={hoodie.image}
+          alt={hoodie.name}
+          className="w-full h-full object-cover object-top"
         />
       </div>
-
+      
       {/* Product Info */}
-      <h3 className="text-2xl font-semibold text-white mb-2">{product.name}</h3>
-      <p className="text-yellow-500 text-2xl font-bold mb-4">₹{product.price.toLocaleString()}</p>
-
-      {/* Color Selection */}
-      <div className="mb-4">
-        <label className="text-zinc-300 text-sm mb-2 block">Color:</label>
-        <div className="flex flex-wrap gap-2">
-          {product.colors.map(color => (
-            <button
-              key={color}
-              onClick={() => setSelectedColor(color)}
-              className={`px-3 py-1 text-sm rounded ${
-                selectedColor === color
-                  ? 'bg-yellow-600 text-black'
-                  : 'bg-zinc-800 text-white hover:bg-zinc-700'
-              }`}
-              data-testid={`color-${color.toLowerCase().replace(/\s+/g, '-')}`}
-            >
-              {color}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Size Selection */}
-      <div className="mb-4">
-        <label className="text-zinc-300 text-sm mb-2 block">Size:</label>
-        <div className="flex gap-2">
-          {product.sizes.map(size => (
+      <div className="flex flex-col items-center w-full space-y-2">
+        <h3 className="text-lg font-normal text-white tracking-wide">{hoodie.name}</h3>
+        <p className="text-xs text-gray-400 font-light">1 of 30 Only</p>
+        <p className="text-base font-normal text-white">₹4,899</p>
+        
+        {/* Size Options */}
+        <div className="flex justify-center items-center gap-2 pt-2 w-full">
+          {sizes.map(size => (
             <button
               key={size}
               onClick={() => setSelectedSize(size)}
-              className={`px-3 py-1 text-sm rounded ${
-                selectedSize === size
-                  ? 'bg-yellow-600 text-black'
-                  : 'bg-zinc-800 text-white hover:bg-zinc-700'
+              className={`border px-2.5 py-1 text-xs font-light transition-all ${
+                selectedSize === size 
+                  ? 'border-white bg-white text-black' 
+                  : 'border-gray-600 bg-transparent text-gray-300 hover:border-gray-400'
               }`}
-              data-testid={`size-${size.toLowerCase()}`}
+              data-testid={`size-${size.toLowerCase()}-${hoodie.id}`}
             >
               {size}
             </button>
           ))}
         </div>
+        
+        {/* Request Access Button */}
+        <div className="w-full pt-2">
+          <button
+            onClick={handleRequestAccess}
+            disabled={!selectedSize || isCartFull}
+            className="w-full px-6 py-3 bg-gradient-to-r from-yellow-600 to-yellow-500 text-black font-semibold text-sm uppercase tracking-wider hover:from-yellow-500 hover:to-yellow-600 transition-all shadow-lg hover:shadow-xl disabled:opacity-40 disabled:cursor-not-allowed"
+            data-testid={`add-to-cart-btn-${hoodie.id}`}
+          >
+            Request Access
+          </button>
+        </div>
       </div>
-
-      {/* Add to Cart Button */}
-      <Button
-        onClick={() => onAddToCart(product, selectedColor, selectedSize)}
-        className="w-full bg-yellow-600 hover:bg-yellow-700 text-black font-bold text-lg py-6"
-        data-testid="add-to-cart-btn"
-      >
-        Add to Cart
-      </Button>
-    </Card>
+    </div>
   );
 };
 
