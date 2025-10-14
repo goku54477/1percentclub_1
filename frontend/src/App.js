@@ -17,37 +17,45 @@ function AnimatedRoutes() {
   return (
     <AnimatePresence mode="wait" initial={false}>
       <Routes location={location} key={location.key}>
-        <Route path="/" element={<Navigate to="/store" replace />} />
+        <Route path="/" element={<ClosedLanding />} />
         <Route 
           path="/store" 
           element={
-            <PageTransition key="store">
-              <Store />
-            </PageTransition>
+            <ProtectedRoute>
+              <PageTransition key="store">
+                <Store />
+              </PageTransition>
+            </ProtectedRoute>
           } 
         />
         <Route 
           path="/cart" 
           element={
-            <PageTransition key="cart">
-              <Cart />
-            </PageTransition>
+            <ProtectedRoute>
+              <PageTransition key="cart">
+                <Cart />
+              </PageTransition>
+            </ProtectedRoute>
           } 
         />
         <Route 
           path="/checkout" 
           element={
-            <PageTransition key="checkout">
-              <Checkout />
-            </PageTransition>
+            <ProtectedRoute>
+              <PageTransition key="checkout">
+                <Checkout />
+              </PageTransition>
+            </ProtectedRoute>
           } 
         />
         <Route 
           path="/confirmation" 
           element={
-            <PageTransition key="confirmation" isConfirmationPage={true}>
-              <Confirmation />
-            </PageTransition>
+            <ProtectedRoute>
+              <PageTransition key="confirmation" isConfirmationPage={true}>
+                <Confirmation />
+              </PageTransition>
+            </ProtectedRoute>
           } 
         />
       </Routes>
