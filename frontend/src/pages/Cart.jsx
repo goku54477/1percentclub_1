@@ -260,7 +260,6 @@ const Cart = () => {
           </Card>
         </div>
       </div>
-      </div>
     </>
   );
 };
