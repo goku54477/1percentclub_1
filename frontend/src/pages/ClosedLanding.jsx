@@ -36,8 +36,8 @@ const ClosedLanding = () => {
   return (
     <div 
       id="closed-landing"
-      className="min-h-screen bg-black flex flex-col items-center justify-center px-4 py-8 animate-fadeIn"
-      style={{ animation: 'fadeIn 0.5s ease-in-out' }}
+      className="min-h-screen flex flex-col items-center justify-center px-4 py-8 animate-fadeIn"
+      style={{ animation: 'fadeIn 0.5s ease-in-out', backgroundColor: '#0b0b0a' }}
     >
       <style>
         {`
