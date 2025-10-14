@@ -9,15 +9,6 @@ const ClosedLanding = () => {
   const [isShaking, setIsShaking] = useState(false);
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
 
-  const hoodies = [
-    { id: 'blue', image: '/assets/blue1.jpg', color: 'Turquoise Blue' },
-    { id: 'grey', image: '/assets/grey1.jpg', color: 'Grey' },
-    { id: 'green', image: '/assets/green1.jpg', color: 'Green' },
-    { id: 'yellow', image: '/assets/yellow1.jpg', color: 'Yellow' },
-    { id: 'red', image: '/assets/red1.jpg', color: 'Red' },
-    { id: 'black', image: '/assets/black1.jpg', color: 'Black' }
-  ];
-
   const handlePasswordSubmit = (e) => {
     e.preventDefault();
     
