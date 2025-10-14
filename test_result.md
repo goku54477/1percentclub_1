@@ -103,8 +103,17 @@
 #====================================================================================================
 
 user_problem_statement: |
-  Update marketplace section with new product assets from GitHub, fix model image sizing/cropping issues 
-  (head cutoff and white background), and add smooth cart-to-confirmation page transition animation.
+  Implement a "WE'RE CLOSED" landing page as the entry point to gate marketplace access. Features include:
+  - Full-screen black background with red "1%" logo
+  - "WE'RE CLOSED" heading and "Unlock access. Join the waitlist." subtitle
+  - Password protection (hardcoded "1percent", case-insensitive)
+  - 6-color hoodie showcase (blue, grey, green, yellow, red, black)
+  - "Join SMS Waitlist" button that opens modal form
+  - Modal collects: First Name, Last Name, Email, Phone Number (all required with validation)
+  - Protected routes - marketplace accessible only after password entry
+  - Smooth fade transitions between landing and marketplace
+  - Mobile responsive design with 2-column grid for hoodies
+  - NO countdown timer (removed as per requirements)
 
 frontend:
   - task: "Integrate new product images from GitHub commit"
