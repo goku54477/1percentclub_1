@@ -132,22 +132,13 @@ const ClosedLanding = () => {
         </form>
 
         {/* Hoodie Showcase */}
-        <div className="w-full mt-12 mb-8">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 max-w-6xl mx-auto">
-            {hoodies.map((hoodie) => (
-              <div 
-                key={hoodie.id} 
-                className="flex flex-col items-center"
-              >
-                <div className="w-full aspect-[3/4] bg-black rounded-lg overflow-hidden">
-                  <img
-                    src={hoodie.image}
-                    alt={`${hoodie.color} hoodie`}
-                    className="w-full h-full object-cover object-top transform scale-105"
-                  />
-                </div>
-              </div>
-            ))}
+        <div className="w-full mt-12 mb-8 flex justify-center">
+          <div className="max-w-6xl w-full">
+            <img
+              src="/assets/landing-hoodies.png"
+              alt="1% Hoodies Collection"
+              className="w-full h-auto object-contain"
+            />
           </div>
         </div>
 
