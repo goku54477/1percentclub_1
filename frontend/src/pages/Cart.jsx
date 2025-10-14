@@ -89,7 +89,14 @@ const Cart = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black px-4 py-8" data-testid="cart-page">
+    <>
+      <AnimatePresence>
+        {showTransition && (
+          <CheckoutTransition onComplete={handleTransitionComplete} />
+        )}
+      </AnimatePresence>
+      
+      <div className="min-h-screen bg-black px-4 py-8" data-testid="cart-page">
       {/* Logo */}
       <div className="text-center mb-8">
         <img
