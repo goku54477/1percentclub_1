@@ -53,8 +53,12 @@ const Cart = () => {
 
   const handleCheckout = () => {
     if (cart.length > 0) {
-      navigate('/checkout');
+      setShowTransition(true);
     }
+  };
+
+  const handleTransitionComplete = () => {
+    navigate('/checkout');
   };
 
   const handleContinueShopping = () => {
