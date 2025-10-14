@@ -1,4 +1,5 @@
 import "@/App.css";
+import React from "react";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Store from "@/pages/Store";
@@ -12,13 +13,13 @@ function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
+    <AnimatePresence mode="wait" initial={false}>
+      <Routes location={location} key={location.key}>
         <Route path="/" element={<Navigate to="/store" replace />} />
         <Route 
           path="/store" 
           element={
-            <PageTransition>
+            <PageTransition key="store">
               <Store />
             </PageTransition>
           } 
@@ -26,7 +27,7 @@ function AnimatedRoutes() {
         <Route 
           path="/cart" 
           element={
-            <PageTransition>
+            <PageTransition key="cart">
               <Cart />
             </PageTransition>
           } 
@@ -34,7 +35,7 @@ function AnimatedRoutes() {
         <Route 
           path="/checkout" 
           element={
-            <PageTransition>
+            <PageTransition key="checkout">
               <Checkout />
             </PageTransition>
           } 
@@ -42,7 +43,7 @@ function AnimatedRoutes() {
         <Route 
           path="/confirmation" 
           element={
-            <PageTransition isConfirmationPage={true}>
+            <PageTransition key="confirmation" isConfirmationPage={true}>
               <Confirmation />
             </PageTransition>
           } 
