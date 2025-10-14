@@ -1,0 +1,13 @@
+{
+  "name": "1percentclub-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && yarn install && yarn build",
+    "start": "cd frontend && yarn start"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "yarn": ">=1.22.0"
+  }
+}
