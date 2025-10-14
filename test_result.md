@@ -103,17 +103,13 @@
 #====================================================================================================
 
 user_problem_statement: |
-  Implement a "WE'RE CLOSED" landing page as the entry point to gate marketplace access. Features include:
-  - Full-screen black background with red "1%" logo
-  - "WE'RE CLOSED" heading and "Unlock access. Join the waitlist." subtitle
-  - Password protection (hardcoded "1percent", case-insensitive)
-  - 6-color hoodie showcase (blue, grey, green, yellow, red, black)
-  - "Join SMS Waitlist" button that opens modal form
-  - Modal collects: First Name, Last Name, Email, Phone Number (all required with validation)
-  - Protected routes - marketplace accessible only after password entry
-  - Smooth fade transitions between landing and marketplace
-  - Mobile responsive design with 2-column grid for hoodies
-  - NO countdown timer (removed as per requirements)
+  1. Replace the 6 individual hoodie models on the landing page with a single composite image from GitHub
+  2. Add a smooth transition animation after clicking "Proceed to Checkout" in the cart section with:
+     - Full-screen black overlay
+     - Pulsing logo with "Proceeding to Checkout" text
+     - Animated loading dots
+     - Progress bar animation
+     - 1.8s duration before navigating to checkout page
 
 frontend:
   - task: "Create ClosedLanding page component with password protection"
