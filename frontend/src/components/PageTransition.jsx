@@ -20,9 +20,9 @@ const PageTransition = ({ children, isConfirmationPage = false }) => {
     },
     exit: { 
       opacity: 0,
-      x: '-100%',
+      x: '-50%',
       transition: {
-        duration: 0.5,
+        duration: 0.4,
         ease: [0.22, 1, 0.36, 1]
       }
     }
@@ -31,17 +31,20 @@ const PageTransition = ({ children, isConfirmationPage = false }) => {
   // Standard fade animation for other pages
   const standardVariants = {
     initial: { 
-      opacity: 0
+      opacity: 0,
+      x: 20
     },
     animate: { 
       opacity: 1,
+      x: 0,
       transition: {
-        duration: 0.3,
+        duration: 0.4,
         ease: 'easeInOut'
       }
     },
     exit: { 
       opacity: 0,
+      x: -20,
       transition: {
         duration: 0.3,
         ease: 'easeInOut'
@@ -57,7 +60,11 @@ const PageTransition = ({ children, isConfirmationPage = false }) => {
       exit="exit"
       style={{
         width: '100%',
-        minHeight: '100vh'
+        minHeight: '100vh',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0
       }}
     >
       {children}
