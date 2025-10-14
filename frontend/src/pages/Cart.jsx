@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Trash2, ShoppingCart, Info } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
+import CheckoutTransition from '@/components/CheckoutTransition';
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -10,6 +12,7 @@ const Cart = () => {
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart) : [];
   });
+  const [showTransition, setShowTransition] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
