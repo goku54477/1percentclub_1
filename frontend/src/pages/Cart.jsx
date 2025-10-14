@@ -67,24 +67,32 @@ const Cart = () => {
 
   if (cart.length === 0) {
     return (
-      <div className="min-h-screen bg-black px-4 py-8 flex items-center justify-center" data-testid="cart-page">
-        <Card className="max-w-2xl w-full text-center p-12 bg-zinc-900 border-zinc-800">
-          <ShoppingCart className="w-16 h-16 text-zinc-500 mx-auto mb-6" />
-          <h1 className="text-3xl font-light text-white mb-4 uppercase tracking-wider">
-            Your Cart is Empty
-          </h1>
-          <p className="text-zinc-400 mb-8 text-lg">
-            Looks like you haven't added any items to your cart yet.
-          </p>
-          <Button
-            onClick={handleContinueShopping}
-            className="max-w-md mx-auto bg-zinc-800 hover:bg-zinc-700 text-white"
-            data-testid="continue-shopping-btn"
-          >
-            Continue Shopping
-          </Button>
-        </Card>
-      </div>
+      <>
+        <AnimatePresence>
+          {showTransition && (
+            <CheckoutTransition onComplete={handleTransitionComplete} />
+          )}
+        </AnimatePresence>
+        
+        <div className="min-h-screen bg-black px-4 py-8 flex items-center justify-center" data-testid="cart-page">
+          <Card className="max-w-2xl w-full text-center p-12 bg-zinc-900 border-zinc-800">
+            <ShoppingCart className="w-16 h-16 text-zinc-500 mx-auto mb-6" />
+            <h1 className="text-3xl font-light text-white mb-4 uppercase tracking-wider">
+              Your Cart is Empty
+            </h1>
+            <p className="text-zinc-400 mb-8 text-lg">
+              Looks like you haven't added any items to your cart yet.
+            </p>
+            <Button
+              onClick={handleContinueShopping}
+              className="max-w-md mx-auto bg-zinc-800 hover:bg-zinc-700 text-white"
+              data-testid="continue-shopping-btn"
+            >
+              Continue Shopping
+            </Button>
+          </Card>
+        </div>
+      </>
     );
   }
 
