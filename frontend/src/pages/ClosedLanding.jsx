@@ -82,12 +82,12 @@ const ClosedLanding = () => {
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl font-extrabold text-white text-center uppercase tracking-widest mb-2" style={{ fontFamily: 'Arial Black, sans-serif', letterSpacing: '0.15em' }}>
+        <h1 className="text-5xl md:text-7xl font-bold text-white text-center uppercase tracking-widest mb-2" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', letterSpacing: '0.15em' }}>
           WE'RE CLOSED
         </h1>
 
         {/* Subtitle */}
-        <p className="text-white text-base md:text-lg text-center font-light uppercase tracking-wide mb-4">
+        <p className="text-white text-base md:text-lg text-center font-normal uppercase tracking-wide mb-4" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
           UNLOCK ACCESS. JOIN WAITLIST
         </p>
 
