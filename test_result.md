@@ -152,6 +152,21 @@ frontend:
       - working: true
         agent: "main"
         comment: "Updated landing page to match reference design exactly: (1) Changed ENTER button from gray to red (bg-red-600 hover:bg-red-700), (2) Updated subtitle to uppercase 'UNLOCK ACCESS. JOIN WAITLIST' with tracking-wide, (3) Enhanced heading font to text-7xl font-extrabold with Arial Black and wider letter spacing (0.15em), (4) Added social media section at bottom with 'FOLLOW US AT' text and Instagram, TikTok, Twitter icons with hover effects, (5) Updated Join Waitlist button text from 'Join SMS Waitlist' to 'Join Waitlist'. All styling matches black background with red accent colors from reference image. Layout is centered and responsive."
+      - working: true
+        agent: "main"
+        comment: "Refined golden border on password input to be ultra-subtle: Changed to 20% opacity (rgba(212, 175, 55, 0.2)), added minimal 10% glow effect, reduced to 1px width. Border now provides premium feel without standing out."
+  
+  - task: "Add login transition animation after password entry"
+    implemented: true
+    working: true
+    file: "src/components/LoginTransition.jsx, src/pages/ClosedLanding.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Created LoginTransition component matching GitHub video reference. Features: (1) Full-screen red background (#dc2626), (2) Centered 1% logo with scale animation (0 to 1.2 to 1 over 1.2s), (3) Pixelated white block particles animating around logo with staggered delays (12 blocks), (4) 'LOADING...' text below logo with animated dots (infinite pulse), (5) Subtle glitch overlay effect with horizontal movement and opacity changes. Total duration 3 seconds before navigating to /store. Integrated with AnimatePresence in ClosedLanding. Tested - triggers on correct password entry, displays smooth animation, navigates after 3s."
 
 metadata:
   created_by: "main_agent"
