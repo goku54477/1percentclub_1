@@ -19,16 +19,13 @@ const ClosedLanding = () => {
       // Set authenticated flag
       localStorage.setItem('authenticated', 'true');
       
-      // Fade out and navigate
-      const landingEl = document.getElementById('closed-landing');
-      if (landingEl) {
-        landingEl.style.opacity = '0';
-        landingEl.style.transition = 'opacity 0.3s ease-in-out';
-      }
+      // Show transition animation
+      setShowTransition(true);
       
+      // Navigate after transition completes (3 seconds)
       setTimeout(() => {
         navigate('/store');
-      }, 300);
+      }, 3000);
     } else {
       setError('Invalid password');
       setIsShaking(true);
