@@ -71,23 +71,23 @@ const ClosedLanding = () => {
         `}
       </style>
 
-      <div className="w-full max-w-4xl mx-auto flex flex-col items-center space-y-8">
+      <div className="w-full max-w-4xl mx-auto flex flex-col items-center space-y-6">
         {/* Logo */}
-        <div className="mb-4">
+        <div className="mb-2">
           <img 
             src="https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/1240476a-bf23-4bf4-9259-64052a0d8ef0.jpeg"
             alt="1% Logo"
-            className="w-24 h-24 md:w-28 md:h-28 object-contain drop-shadow-2xl"
+            className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-2xl"
           />
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl font-extrabold text-white text-center uppercase tracking-widest" style={{ fontFamily: 'Arial Black, sans-serif', letterSpacing: '0.15em' }}>
+        <h1 className="text-5xl md:text-7xl font-extrabold text-white text-center uppercase tracking-widest mb-2" style={{ fontFamily: 'Arial Black, sans-serif', letterSpacing: '0.15em' }}>
           WE'RE CLOSED
         </h1>
 
         {/* Subtitle */}
-        <p className="text-white text-lg md:text-xl text-center font-light uppercase tracking-wide">
+        <p className="text-white text-base md:text-lg text-center font-light uppercase tracking-wide mb-4">
           UNLOCK ACCESS. JOIN WAITLIST
         </p>
 
