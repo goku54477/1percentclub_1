@@ -164,9 +164,14 @@ const Store = () => {
       </div>
       
       {/* Store Title */}
-      <h1 className="text-4xl md:text-5xl font-light text-white mb-12 text-center uppercase tracking-wider">
-        Exclusive. Limited. Invite-only.
-      </h1>
+      <div className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-light text-white uppercase tracking-wider leading-tight">
+          EXCLUSIVE
+        </h1>
+        <h2 className="text-2xl md:text-3xl font-light text-white uppercase tracking-wider mt-2">
+          LIMITED. INVITE ONLY
+        </h2>
+      </div>
       
       {/* Product Grid - All 6 Hoodies */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
