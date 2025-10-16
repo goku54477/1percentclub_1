@@ -110,7 +110,7 @@ const ClosedLanding = () => {
             />
             <button
               type="submit"
-              className="w-full sm:w-auto px-8 py-3 bg-gray-900 border border-gray-700 text-white font-bold rounded-lg uppercase hover:bg-white hover:text-black transition-all button-glow"
+              className="w-full sm:w-auto px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg uppercase transition-all shadow-lg"
             >
               ENTER
             </button>
