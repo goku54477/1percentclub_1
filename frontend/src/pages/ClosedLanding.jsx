@@ -105,17 +105,22 @@ const ClosedLanding = () => {
               className={`flex-1 w-full px-6 py-4 bg-gray-900 border rounded-l-lg sm:rounded-r-none rounded-r-lg sm:border-r-0 text-white placeholder-gray-400 focus:outline-none transition-all ${
                 isShaking ? 'shake' : ''
               }`}
-              style={{ borderColor: error ? '#ef4444' : 'rgba(212, 175, 55, 0.2)', boxShadow: error ? 'none' : '0 0 6px rgba(212, 175, 55, 0.1)' }}
+              style={{ 
+                borderColor: error ? '#ef4444' : 'rgba(212, 175, 55, 0.2)', 
+                boxShadow: error ? 'none' : '0 0 6px rgba(212, 175, 55, 0.1)',
+                fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif'
+              }}
             />
             <button
               type="submit"
               className="w-full sm:w-auto px-10 py-4 bg-red-600 hover:bg-red-700 text-white font-normal rounded-r-lg sm:rounded-l-none rounded-l-lg uppercase tracking-widest transition-all"
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}
             >
               ENTER
             </button>
           </div>
           {error && (
-            <p className="text-red-500 text-sm mt-2 text-center shake">
+            <p className="text-red-500 text-sm mt-2 text-center shake" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
               {error}
             </p>
           )}
