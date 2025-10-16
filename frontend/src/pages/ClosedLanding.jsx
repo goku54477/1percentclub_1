@@ -135,10 +135,10 @@ const ClosedLanding = () => {
         </div>
 
         {/* Join Waitlist Button */}
-        <div className="w-full max-w-xl mt-8">
+        <div className="w-full max-w-2xl mt-12">
           <button
             onClick={() => setShowWaitlistModal(true)}
-            className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg uppercase tracking-wider text-lg transition-all shadow-lg glow-hover"
+            className="w-full bg-red-600 hover:bg-red-700 text-white font-normal py-4 px-8 rounded-lg uppercase tracking-widest text-lg transition-all glow-hover"
           >
             Join Waitlist
           </button>
