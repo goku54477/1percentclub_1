@@ -5,7 +5,7 @@ const LoginTransition = () => {
   return (
     <motion.div
       className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
-      style={{ backgroundColor: '#dc2626' }}
+      style={{ backgroundColor: '#000000' }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
