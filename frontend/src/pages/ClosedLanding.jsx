@@ -87,8 +87,8 @@ const ClosedLanding = () => {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-white text-lg md:text-xl text-center font-light">
-          Unlock access. Join the waitlist.
+        <p className="text-white text-lg md:text-xl text-center font-light uppercase tracking-wide">
+          UNLOCK ACCESS. JOIN WAITLIST
         </p>
 
         {/* Password Form */}
