@@ -92,8 +92,8 @@ const ClosedLanding = () => {
         </p>
 
         {/* Password Form */}
-        <form onSubmit={handlePasswordSubmit} className="w-full max-w-md mt-8">
-          <div className="flex flex-col sm:flex-row items-center gap-3">
+        <form onSubmit={handlePasswordSubmit} className="w-full max-w-2xl mt-8">
+          <div className="flex flex-col sm:flex-row items-stretch">
             <input
               type="password"
               value={password}
@@ -102,15 +102,16 @@ const ClosedLanding = () => {
                 setError('');
               }}
               placeholder="Password"
-              className={`flex-1 w-full sm:w-auto px-6 py-3 bg-gray-900 border ${
-                error ? 'border-red-500' : 'border-gray-700'
-              } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-white transition-all ${
+              className={`flex-1 w-full px-6 py-4 bg-gray-900 border-2 ${
+                error ? 'border-red-500' : 'border-yellow-600'
+              } rounded-l-lg sm:rounded-r-none rounded-r-lg sm:border-r-0 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500 transition-all ${
                 isShaking ? 'shake' : ''
               }`}
+              style={{ borderColor: error ? '#ef4444' : '#ca8a04' }}
             />
             <button
               type="submit"
-              className="w-full sm:w-auto px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg uppercase transition-all shadow-lg"
+              className="w-full sm:w-auto px-10 py-4 bg-red-600 hover:bg-red-700 text-white font-normal rounded-r-lg sm:rounded-l-none rounded-l-lg uppercase tracking-widest transition-all"
             >
               ENTER
             </button>
