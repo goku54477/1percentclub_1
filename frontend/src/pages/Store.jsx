@@ -247,8 +247,12 @@ const HoodieCard = ({ hoodie, onAddToCart, isCartFull }) => {
               className={`border px-2.5 py-1 text-xs font-light transition-all ${
                 selectedSize === size 
                   ? 'border-white bg-white text-black' 
-                  : 'border-gray-600 bg-transparent text-gray-300 hover:border-gray-400'
+                  : 'bg-transparent text-gray-300 hover:border-opacity-40'
               }`}
+              style={{ 
+                borderColor: selectedSize === size ? '#ffffff' : 'rgba(212, 175, 55, 0.2)',
+                boxShadow: selectedSize === size ? 'none' : '0 0 6px rgba(212, 175, 55, 0.1)'
+              }}
               data-testid={`size-${size.toLowerCase()}-${hoodie.id}`}
             >
               {size}
