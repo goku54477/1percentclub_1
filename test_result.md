@@ -110,6 +110,11 @@ user_problem_statement: |
      - Animated loading dots
      - Progress bar animation
      - 1.8s duration before navigating to checkout page
+  3. Update landing page design to match reference image exactly:
+     - Red ENTER button
+     - Uppercase subtitle "UNLOCK ACCESS. JOIN WAITLIST"
+     - Social media section with Instagram, TikTok, Twitter icons
+     - Bold, prominent font styling
 
 frontend:
   - task: "Replace landing page hoodie showcase with composite image"
