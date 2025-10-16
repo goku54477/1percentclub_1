@@ -102,10 +102,10 @@ const ClosedLanding = () => {
                 setError('');
               }}
               placeholder="Password"
-              className={`flex-1 w-full px-6 py-4 bg-gray-900 border-2 rounded-l-lg sm:rounded-r-none rounded-r-lg sm:border-r-0 text-white placeholder-gray-400 focus:outline-none transition-all ${
+              className={`flex-1 w-full px-6 py-4 bg-gray-900 border rounded-l-lg sm:rounded-r-none rounded-r-lg sm:border-r-0 text-white placeholder-gray-400 focus:outline-none transition-all ${
                 isShaking ? 'shake' : ''
               }`}
-              style={{ borderColor: error ? '#ef4444' : '#d4af37', boxShadow: error ? 'none' : '0 0 8px rgba(212, 175, 55, 0.3)' }}
+              style={{ borderColor: error ? '#ef4444' : 'rgba(212, 175, 55, 0.2)', boxShadow: error ? 'none' : '0 0 6px rgba(212, 175, 55, 0.1)' }}
             />
             <button
               type="submit"
