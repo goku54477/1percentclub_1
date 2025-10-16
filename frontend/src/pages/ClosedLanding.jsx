@@ -82,7 +82,7 @@ const ClosedLanding = () => {
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-4xl md:text-6xl font-bold text-white text-center uppercase tracking-wider">
+        <h1 className="text-5xl md:text-7xl font-extrabold text-white text-center uppercase tracking-widest" style={{ fontFamily: 'Arial Black, sans-serif', letterSpacing: '0.15em' }}>
           WE'RE CLOSED
         </h1>
 
