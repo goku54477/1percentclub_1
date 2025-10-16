@@ -265,7 +265,11 @@ const HoodieCard = ({ hoodie, onAddToCart, isCartFull }) => {
           <button
             onClick={handleRequestAccess}
             disabled={!selectedSize || isCartFull}
-            className="w-full px-6 py-3 bg-gradient-to-r from-yellow-600 to-yellow-500 text-black font-semibold text-sm uppercase tracking-wider hover:from-yellow-500 hover:to-yellow-600 transition-all shadow-lg hover:shadow-xl disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-full px-6 py-3 bg-gradient-to-r from-yellow-600 to-yellow-500 text-black font-semibold text-sm uppercase tracking-wider hover:from-yellow-500 hover:to-yellow-600 transition-all shadow-lg hover:shadow-xl disabled:opacity-40 disabled:cursor-not-allowed border"
+            style={{ 
+              borderColor: 'rgba(212, 175, 55, 0.2)',
+              boxShadow: '0 0 6px rgba(212, 175, 55, 0.1), 0 4px 6px -1px rgb(0 0 0 / 0.1)'
+            }}
             data-testid={`add-to-cart-btn-${hoodie.id}`}
           >
             Request Access
