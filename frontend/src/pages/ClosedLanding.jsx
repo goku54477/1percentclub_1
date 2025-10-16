@@ -124,7 +124,7 @@ const ClosedLanding = () => {
         </form>
 
         {/* Hoodie Showcase */}
-        <div className="w-full mt-12 mb-8 flex justify-center">
+        <div className="w-full mt-8 mb-6 flex justify-center">
           <div className="max-w-6xl w-full">
             <img
               src="/assets/landing-hoodies.png"
