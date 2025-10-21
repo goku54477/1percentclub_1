@@ -230,6 +230,13 @@ const WaitlistModal = ({ isOpen, onClose }) => {
               )}
             </div>
 
+            {/* Submit Error */}
+            {errors.submit && (
+              <div className="text-red-500 text-sm text-center">
+                {errors.submit}
+              </div>
+            )}
+
             {/* Submit Button */}
             <button
               type="submit"
