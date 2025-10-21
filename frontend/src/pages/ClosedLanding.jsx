@@ -93,7 +93,7 @@ const ClosedLanding = () => {
 
         {/* Password Form */}
         <form onSubmit={handlePasswordSubmit} className="w-full max-w-2xl mt-8">
-          <div className="flex flex-col sm:flex-row items-stretch">
+          <div className="flex flex-row items-stretch">
             <input
               type="password"
               value={password}
@@ -102,7 +102,7 @@ const ClosedLanding = () => {
                 setError('');
               }}
               placeholder="Password"
-              className={`flex-1 w-full px-6 py-4 bg-gray-900 border rounded-l-lg sm:rounded-r-none rounded-r-lg sm:border-r-0 text-white placeholder-gray-400 focus:outline-none transition-all ${
+              className={`flex-1 px-4 md:px-6 py-4 bg-gray-900 border border-r-0 rounded-l-lg text-white placeholder-gray-400 text-center focus:outline-none transition-all ${
                 isShaking ? 'shake' : ''
               }`}
               style={{ 
@@ -113,7 +113,7 @@ const ClosedLanding = () => {
             />
             <button
               type="submit"
-              className="w-full sm:w-auto px-10 py-4 bg-red-600 hover:bg-red-700 text-white font-normal rounded-r-lg sm:rounded-l-none rounded-l-lg uppercase tracking-widest transition-all"
+              className="px-6 md:px-10 py-4 bg-red-600 hover:bg-red-700 text-white font-normal rounded-r-lg uppercase tracking-widest transition-all"
               style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}
             >
               ENTER
