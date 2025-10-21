@@ -75,6 +75,79 @@ async def get_status_checks():
     
     return status_checks
 
+@api_router.post("/waitlist")
+async def add_to_waitlist(entry: WaitlistEntry):
+    """
+    Save waitlist entry to a Word document
+    """
+    try:
+        # Define the document path
+        doc_path = ROOT_DIR / "waitlist_submissions.docx"
+        
+        # Check if document exists, if not create it with header
+        if not doc_path.exists():
+            doc = Document()
+            
+            # Add title
+            title = doc.add_heading('1% Waitlist Submissions', 0)
+            title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            
+            # Add creation date
+            date_para = doc.add_paragraph()
+            date_para.add_run(f'Created: {datetime.now().strftime("%B %d, %Y at %I:%M %p")}')
+            date_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            
+            doc.add_paragraph()  # Empty line
+            
+            # Save the initial document
+            doc.save(str(doc_path))
+        
+        # Open the document
+        doc = Document(str(doc_path))
+        
+        # Add entry heading
+        timestamp = datetime.now().strftime("%B %d, %Y at %I:%M %p")
+        heading = doc.add_heading(f'Submission - {timestamp}', level=2)
+        
+        # Add entry details
+        details = [
+            ('Name', f'{entry.firstName} {entry.lastName}'),
+            ('Email', entry.email),
+            ('Phone', entry.phone),
+            ('Timestamp', timestamp)
+        ]
+        
+        for label, value in details:
+            p = doc.add_paragraph()
+            p.add_run(f'{label}: ').bold = True
+            p.add_run(value)
+        
+        # Add separator
+        doc.add_paragraph('_' * 80)
+        doc.add_paragraph()  # Empty line
+        
+        # Save the document
+        doc.save(str(doc_path))
+        
+        logger.info(f"Waitlist entry saved: {entry.email}")
+        
+        return {
+            "success": True,
+            "message": "Successfully added to waitlist",
+            "data": {
+                "name": f"{entry.firstName} {entry.lastName}",
+                "email": entry.email,
+                "timestamp": timestamp
+            }
+        }
+        
+    except Exception as e:
+        logger.error(f"Error saving waitlist entry: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to save waitlist entry: {str(e)}"
+        )
+
 # Include the router in the main app
 app.include_router(api_router)
 
