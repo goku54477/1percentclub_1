@@ -40,6 +40,12 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class WaitlistEntry(BaseModel):
+    firstName: str = Field(..., min_length=1, max_length=100)
+    lastName: str = Field(..., min_length=1, max_length=100)
+    email: EmailStr
+    phone: str = Field(..., min_length=10, max_length=20)
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
