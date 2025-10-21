@@ -149,6 +149,25 @@ async def add_to_waitlist(entry: WaitlistEntry):
             detail=f"Failed to save waitlist entry: {str(e)}"
         )
 
+@api_router.get("/waitlist/download")
+async def download_waitlist():
+    """
+    Download the waitlist submissions Word document
+    """
+    doc_path = ROOT_DIR / "waitlist_submissions.docx"
+    
+    if not doc_path.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="No waitlist submissions found yet"
+        )
+    
+    return FileResponse(
+        path=str(doc_path),
+        filename="1percent_waitlist_submissions.docx",
+        media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    )
+
 # Include the router in the main app
 app.include_router(api_router)
 
