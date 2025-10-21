@@ -82,7 +82,12 @@ const ClosedLanding = () => {
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl font-extrabold text-white text-center uppercase tracking-tight md:tracking-widest mb-2" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', letterSpacing: window.innerWidth >= 768 ? '0.15em' : '0.02em' }}>
+        <h1 className="font-extrabold text-white text-center uppercase mb-2" style={{ 
+          fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
+          fontSize: 'clamp(2.5rem, 11vw, 6rem)',
+          letterSpacing: '0.02em',
+          lineHeight: '1.1'
+        }}>
           WE'RE CLOSED
         </h1>
 
