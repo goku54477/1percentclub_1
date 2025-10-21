@@ -45,7 +45,7 @@ const WaitlistModal = ({ isOpen, onClose }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
 
@@ -72,20 +72,41 @@ const WaitlistModal = ({ isOpen, onClose }) => {
       return;
     }
 
-    // Success - store in localStorage and show success message
-    const waitlistData = JSON.parse(localStorage.getItem('waitlist') || '[]');
-    waitlistData.push({ ...formData, timestamp: new Date().toISOString() });
-    localStorage.setItem('waitlist', JSON.stringify(waitlistData));
-    
-    console.log('Waitlist submission:', formData);
-    setShowSuccess(true);
-    
-    // Close modal after 2 seconds
-    setTimeout(() => {
-      setShowSuccess(false);
-      setFormData({ firstName: '', lastName: '', email: '', phone: '' });
-      onClose();
-    }, 2000);
+    try {
+      // Send to backend API
+      const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+      const response = await fetch(`${backendUrl}/api/waitlist`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit to waitlist');
+      }
+
+      const result = await response.json();
+      console.log('Waitlist submission successful:', result);
+
+      // Also store in localStorage as backup
+      const waitlistData = JSON.parse(localStorage.getItem('waitlist') || '[]');
+      waitlistData.push({ ...formData, timestamp: new Date().toISOString() });
+      localStorage.setItem('waitlist', JSON.stringify(waitlistData));
+      
+      setShowSuccess(true);
+      
+      // Close modal after 2 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+        setFormData({ firstName: '', lastName: '', email: '', phone: '' });
+        onClose();
+      }, 2000);
+    } catch (error) {
+      console.error('Error submitting to waitlist:', error);
+      setErrors({ submit: 'Failed to submit. Please try again.' });
+    }
   };
 
   if (!isOpen) return null;
