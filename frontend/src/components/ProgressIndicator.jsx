@@ -15,10 +15,11 @@ const ProgressIndicator = ({ currentStep }) => {
   };
 
   // Calculate progress line width based on current step
+  // Line should only go up to the previous completed step, not the current active step
   const getProgressWidth = () => {
     if (currentStep === 1) return '0%';
     if (currentStep === 2) return '50%';
-    if (currentStep === 3) return '100%';
+    if (currentStep === 3) return '50%'; // Stop at step 2, don't extend to step 3
     return '0%';
   };
 
