@@ -155,6 +155,9 @@ frontend:
       - working: true
         agent: "main"
         comment: "Refined golden border on password input to be ultra-subtle: Changed to 20% opacity (rgba(212, 175, 55, 0.2)), added minimal 10% glow effect, reduced to 1px width. Border now provides premium feel without standing out."
+      - working: true
+        agent: "main"
+        comment: "Mobile view styling adjustments to match screenshot: (1) Increased logo size from w-24 h-24 to w-40 h-40 for better mobile visibility, (2) Reduced spacing between elements with space-y-3 and adjusted margins (mb-3), (3) Changed subtitle font from font-normal to font-light with tighter text-base size on mobile and increased letter spacing (tracking-wider, 0.1em), (4) Increased Join Waitlist button size - wider container (max-w-3xl), larger padding (py-5), bigger text (text-xl), (5) Changed 'FOLLOW US AT' to just 'FOLLOW US' as per requirements. All changes optimize mobile view layout to match reference screenshot."
   
   - task: "Add login transition animation after password entry"
     implemented: true
