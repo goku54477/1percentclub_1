@@ -41,10 +41,10 @@ const Confirmation = () => {
           WILL ARRIVE SOON
         </h2>
         <p className="text-white text-xl mt-6 font-light mb-4">
-          Welcome to the exclusive club! 🔥
+          Welcome to the 1%
         </p>
         <p className="text-zinc-300 text-lg font-light leading-relaxed">
-          Your premium merchandise is being carefully prepared by our team and will ship within 24-48 hours with express delivery.
+          Your premium merch is being carefully prepared by our team and will ship withing 24-48 hours with express delivery.
         </p>
       </Card>
 
