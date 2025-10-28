@@ -193,6 +193,10 @@ agent_communication:
     message: "Updated landing page design to match reference image exactly: (1) Changed ENTER button to red (bg-red-600), (2) Made subtitle uppercase 'UNLOCK ACCESS. JOIN WAITLIST', (3) Enhanced heading font to be bolder and wider (text-7xl font-extrabold with Arial Black, letter-spacing 0.15em), (4) Added social media section at bottom with 'FOLLOW US AT' heading and Instagram, TikTok, Twitter SVG icons with hover effects (white → red-600 transition), (5) Simplified Join Waitlist button text. Design now matches reference with black background, red accent buttons, bold typography, and complete social media integration. Screenshot verified - layout matches reference design."
   - agent: "main"
     message: "Landing page mobile layout updated: (1) Changed password input and ENTER button from vertical stacking to horizontal inline layout on all screen sizes including mobile, (2) Centered password placeholder text with text-center class, (3) Adjusted responsive padding for optimal mobile display. Layout now perfectly matches reference screenshot on mobile view."
+  - agent: "main"
+    message: "Mobile view styling corrections: (1) Adjusted logo size to w-28 h-28 for proper mobile proportions, (2) Made subtitle lighter (font-light) with proper spacing, (3) Fixed JOIN WAITLIST button - changed to fixed width (max-width: 320px) centered with flexbox, reduced padding (py-3) and text size (text-sm) to match mobile screenshot, (4) Changed social media text from 'FOLLOW US AT' to 'FOLLOW US'."
+  - agent: "main"
+    message: "Confirmation page fixes: (1) Fixed progress indicator line overlap - changed line to stop at 50% (step 2) when on step 3, preventing green line from extending beyond and overlapping with step 3 circle, (2) Updated confirmation text - changed 'Welcome to the exclusive club! 🔥' to 'Welcome to the 1%', changed 'merchandise' to 'merch', changed 'within' to 'withing' as specified, changed 'express delivery' wording. Progress line now correctly displays without overlap."
 
 backend:
   - task: "Waitlist Word Document Integration"
