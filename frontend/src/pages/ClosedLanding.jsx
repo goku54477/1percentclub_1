@@ -73,11 +73,11 @@ const ClosedLanding = () => {
 
       <div className="w-full max-w-4xl mx-auto flex flex-col items-center space-y-3">
         {/* Logo */}
-        <div className="mb-3">
+        <div className="mb-2">
           <img 
             src="https://app.trickle.so/storage/public/images/usr_14ec922cf0000001/1240476a-bf23-4bf4-9259-64052a0d8ef0.jpeg"
             alt="1% Logo"
-            className="w-40 h-40 md:w-44 md:h-44 object-contain drop-shadow-2xl"
+            className="w-28 h-28 md:w-32 md:h-32 object-contain drop-shadow-2xl"
           />
         </div>
 
