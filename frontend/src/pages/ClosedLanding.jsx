@@ -143,11 +143,11 @@ const ClosedLanding = () => {
         </div>
 
         {/* Join Waitlist Button */}
-        <div className="w-full max-w-lg mt-6 px-4">
+        <div className="w-full flex justify-center mt-6 px-4">
           <button
             onClick={() => setShowWaitlistModal(true)}
-            className="w-full bg-red-600 hover:bg-red-700 text-white font-normal py-3.5 px-6 rounded-md uppercase tracking-widest text-base transition-all glow-hover"
-            style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}
+            className="bg-red-600 hover:bg-red-700 text-white font-normal py-3 px-12 rounded-md uppercase tracking-widest text-sm transition-all glow-hover"
+            style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', maxWidth: '320px' }}
           >
             Join Waitlist
           </button>
