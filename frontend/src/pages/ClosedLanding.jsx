@@ -143,10 +143,10 @@ const ClosedLanding = () => {
         </div>
 
         {/* Join Waitlist Button */}
-        <div className="w-full max-w-2xl mt-12">
+        <div className="w-full max-w-3xl mt-8">
           <button
             onClick={() => setShowWaitlistModal(true)}
-            className="w-full bg-red-600 hover:bg-red-700 text-white font-normal py-4 px-8 rounded-lg uppercase tracking-widest text-lg transition-all glow-hover"
+            className="w-full bg-red-600 hover:bg-red-700 text-white font-normal py-5 px-8 rounded-lg uppercase tracking-widest text-xl transition-all glow-hover"
             style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}
           >
             Join Waitlist
@@ -156,7 +156,7 @@ const ClosedLanding = () => {
         {/* Social Media Section */}
         <div className="w-full mt-8 mb-8 flex flex-col items-center space-y-4">
           <p className="text-white text-base uppercase tracking-widest font-normal" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
-            FOLLOW US AT
+            FOLLOW US
           </p>
           <div className="flex items-center space-x-8">
             {/* Instagram */}
